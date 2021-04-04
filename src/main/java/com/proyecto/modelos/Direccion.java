@@ -1,21 +1,28 @@
 package com.proyecto.modelos;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Direccion {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	private String calle;
 	private String numero;
 	private String piso;
 	private String departamento;
 	private String codigoPostal;
-	
+
+	@OneToOne(mappedBy = "direccion")
+	private Usuario duenio;
+
 	public Direccion() {
 		// TODO Auto-generated constructor stub
 	}
@@ -58,5 +65,13 @@ public class Direccion {
 
 	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
+	}
+
+	public Usuario getDuenio() {
+		return duenio;
+	}
+
+	public void setDuenio(Usuario duenio) {
+		this.duenio = duenio;
 	}
 }

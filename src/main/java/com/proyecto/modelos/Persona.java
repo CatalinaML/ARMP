@@ -1,20 +1,23 @@
 package com.proyecto.modelos;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public abstract class Persona{
- 
+public abstract class Persona {
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	private String nombre;
 	private String apellido;
 	private String email;
 	private String contrasenia;
-	
+
 	public Persona() {
 		// TODO Auto-generated constructor stub
 	}
