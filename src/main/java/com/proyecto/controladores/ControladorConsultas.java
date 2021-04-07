@@ -14,6 +14,7 @@ import com.proyecto.repositorios.RepositorioConsultas;
 import com.proyecto.repositorios.RepositorioUsuarios;
 
 @RestController
+@RequestMapping("/consultas")
 public class ControladorConsultas {
 	@Autowired
 	private RepositorioConsultas repositorioConsultas;
@@ -36,7 +37,7 @@ public class ControladorConsultas {
 		return "Consultas cargadas con exito";
 	}
 
-	@RequestMapping(value = "/consultas", method = RequestMethod.POST)
+	@RequestMapping(value = "/consultas", method = RequestMethod.GET)
 	public String consultas(@RequestParam String dni) {
 
 		Usuario u = repositorioUsuarios.buscarPorDni(dni);

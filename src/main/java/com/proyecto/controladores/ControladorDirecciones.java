@@ -12,6 +12,7 @@ import com.proyecto.repositorios.RepositorioDirecciones;
 import com.proyecto.repositorios.RepositorioUsuarios;
 
 @RestController
+@RequestMapping("/direcciones")
 public class ControladorDirecciones {
 	@Autowired
 	private RepositorioDirecciones repositorioDirecciones;
@@ -38,7 +39,7 @@ public class ControladorDirecciones {
 		return "Datos de direccion cargados con exito";
 	}
 
-	@RequestMapping(value = "/mis-datos", method = RequestMethod.POST)
+	@RequestMapping(value = "/mis-datos", method = RequestMethod.GET)
 	public String misDatos(@RequestParam String dni) {
 
 		Usuario u = repositorioUsuarios.buscarPorDni(dni);

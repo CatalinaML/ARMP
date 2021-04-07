@@ -13,6 +13,7 @@ import com.proyecto.modelos.Novedad;
 import com.proyecto.repositorios.RepositorioNovedades;
 
 @RestController
+@RequestMapping("/novedades")
 public class ControladorNovedades {
 	@Autowired
 	private RepositorioNovedades repositorioNovedades;
@@ -27,7 +28,7 @@ public class ControladorNovedades {
 		return "Novedades cargadas con exito";
 	}
 
-	@RequestMapping(value = "/inicio", method = RequestMethod.POST)
+	@RequestMapping(value = "/inicio", method = RequestMethod.GET)
 	public String inicio(@RequestParam String dni) {
 
 		StringBuilder builder = new StringBuilder();

@@ -12,6 +12,7 @@ import com.proyecto.modelos.Usuario;
 import com.proyecto.repositorios.RepositorioUsuarios;
 
 @RestController
+@RequestMapping("/usuarios")
 public class ControladorUsuarios {
 	@Autowired
 	private RepositorioUsuarios repositorioUsuarios;
@@ -23,7 +24,7 @@ public class ControladorUsuarios {
 		return "Datos cargados con exito";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(@RequestParam String dni, @RequestParam String contrasenia) {
 
 		Usuario u = repositorioUsuarios.buscarPorDni(dni);

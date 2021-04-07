@@ -13,6 +13,7 @@ import com.proyecto.modelos.Capacitacion;
 import com.proyecto.repositorios.RepositorioCapacitaciones;
 
 @RestController
+@RequestMapping("/capacitaciones")
 public class ControladorCapacitaciones {
 	@Autowired
 	private RepositorioCapacitaciones repositorioCapacitaciones;
@@ -27,7 +28,7 @@ public class ControladorCapacitaciones {
 		return "Capacitaciones cargadas con exito";
 	}
 
-	@RequestMapping(value = "/inicio", method = RequestMethod.POST)
+	@RequestMapping(value = "/inicio", method = RequestMethod.GET)
 	public String inicio(@RequestParam String dni) {
 
 		StringBuilder builder = new StringBuilder();

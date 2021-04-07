@@ -18,6 +18,7 @@ import com.proyecto.repositorios.RepositorioArchivos;
 import com.proyecto.repositorios.RepositorioUsuarios;
 
 @RestController
+@RequestMapping("/archivos")
 public class ControladorArchivos {
 	@Autowired
 	private RepositorioArchivos repositorioArchivos;
@@ -45,7 +46,7 @@ public class ControladorArchivos {
 		return "Archivos cargados con exito";
 	}
 
-	@RequestMapping(value = "/mis-datos", method = RequestMethod.POST)
+	@RequestMapping(value = "/mis-datos", method = RequestMethod.GET)
 	public String misDatos(@RequestParam String dni) {
 
 		Usuario u = repositorioUsuarios.buscarPorDni(dni);
