@@ -21,9 +21,8 @@ public class ControladorNovedades {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String cargarDatos() {
 
-		repositorioNovedades.cargarNovedad("Cuerpo1", "Uno", new Date());
-		repositorioNovedades.cargarNovedad("Cuerpo2", "Dos", new Date());
-		repositorioNovedades.cargarNovedad("Cuerpo3", "Tres", new Date());
+		repositorioNovedades.cargarNovedad("Abierta la inscripción curso 'x'", "Curso 'x'", new Date());
+		repositorioNovedades.cargarNovedad("Por favor actualizar datos personales", "Datos personales!", new Date());
 
 		return "Novedades cargadas con exito";
 	}
@@ -40,7 +39,7 @@ public class ControladorNovedades {
 
 			builder.append(novedad.getTitulo() + "<br>");
 			builder.append(novedad.getCuerpo() + "<br>");
-			builder.append("Fecha de publicacion: " + novedad.getFechaPublicacion() + "<br>");
+			builder.append("Fecha de publicacion: " + novedad.getFechaPublicacion() + "<br> <br>");
 
 		}
 

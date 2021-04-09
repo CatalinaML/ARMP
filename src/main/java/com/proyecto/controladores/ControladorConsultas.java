@@ -34,6 +34,16 @@ public class ControladorConsultas {
 		u.getConsulta().add(consulta);
 		repositorioUsuarios.save(u);
 
+		Usuario user = repositorioUsuarios.buscarPorDni("25432598");
+
+		Consulta consulta1 = new Consulta();
+		consulta1.setTipoConsulta(Consulta.TipoConsulta.CAPACITACION);
+		consulta1.setMensaje("Primera consulta");
+		consulta1.setDuenioConsulta(user);
+		repositorioConsultas.save(consulta1);
+		user.getConsulta().add(consulta1);
+		repositorioUsuarios.save(user);
+
 		return "Consultas cargadas con exito";
 	}
 
@@ -57,6 +67,22 @@ public class ControladorConsultas {
 			}
 		}
 
+		Usuario user = repositorioUsuarios.buscarPorDni(dni);
+
+		StringBuilder builderUser = new StringBuilder();
+
+		if (user != null) {
+
+			List<Consulta> consulta = user.getConsulta();
+			builderUser.append("Consultas <br>");
+
+			for (Consulta consultas : consulta) {
+
+				builderUser.append("Tipo de consulta:" + consultas.getTipoConsulta() + "<br>");
+				builderUser.append(consultas.getMensaje());
+
+			}
+		}
 		return builder.toString();
 	}
 }

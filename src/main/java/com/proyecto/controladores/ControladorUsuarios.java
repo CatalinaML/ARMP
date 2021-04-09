@@ -19,8 +19,12 @@ public class ControladorUsuarios {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String cargarDatos() {
-		repositorioUsuarios.cargarUsuario("39337701", "Manuel", "Liste", "2231212121", "12345678", new Date(),
-				new Date(), "manueliste");
+		repositorioUsuarios.cargarUsuario("39337701", "Carolina", "Lopez", "2231212121", "123456-8", new Date(),
+				new Date(), "contrasenia");
+		repositorioUsuarios.cargarUsuario("25432598", "Juan", "Perez", "2235483269", "5487236-9", new Date(),
+				new Date(), "juanperez");
+		repositorioUsuarios.cargarUsuario("21369548", "Veronica", "Suarez", "2236485127", "2457813-5", new Date(),
+				new Date(), "123456");
 		return "Datos cargados con exito";
 	}
 
@@ -55,5 +59,4 @@ public class ControladorUsuarios {
 
 		return builder.toString();
 	}
-
 }
